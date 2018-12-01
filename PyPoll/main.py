@@ -13,16 +13,19 @@ with open(input_path, 'r') as input_file:
     # Skip the Header
     header = next(csvreader)
 
+    # Holders for total votes and per-candidate votes
     total_votes = 0
-    cadndidate_votes = {}
+    candidate_votes = {}
 
+    # Iterate through rows
     for row in csvreader:
         total_votes += 1
         candidate = row[2]
-        if candidate not in cadndidate_votes:
-            cadndidate_votes[candidate] = 1
+        # If we are visiting a candidate for the first time, add an entry in the dictionary
+        if candidate not in candidate_votes:
+            candidate_votes[candidate] = 1
         else:
-            cadndidate_votes[candidate] += 1
+            candidate_votes[candidate] += 1
 
 print(f'Election Results')
 print(f'-------------------------')
@@ -30,7 +33,7 @@ print(f'Total Votes: {total_votes}')
 print(f'-------------------------')
 winner = None
 winner_votes = 0
-for candidate, votes in cadndidate_votes.items():
+for candidate, votes in candidate_votes.items():
     if votes > winner_votes:
         winner = candidate
         winner_votes = votes
@@ -47,7 +50,7 @@ with open('results.txt', 'w') as output_file:
     output_file.write(f'-------------------------\n')
     winner = None
     winner_votes = 0
-    for candidate, votes in cadndidate_votes.items():
+    for candidate, votes in candidate_votes.items():
         if votes > winner_votes:
             winner = candidate
             winner_votes = votes
