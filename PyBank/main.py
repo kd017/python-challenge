@@ -65,8 +65,8 @@ print('----------------------------')
 print(f'Total Months: {num_months}')
 print(f'Total: ${total:.0f}')
 print(f'Average  Change: ${change_across_period/num_changes:.2f}')
-print(f'Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})')
-print(f'Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})')
+print(f'Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase:.0f})')
+print(f'Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease:.0f})')
 
 with open('results.txt', 'w') as output_file:
     output_file.write('Financial Analysis\n')
@@ -74,8 +74,8 @@ with open('results.txt', 'w') as output_file:
     output_file.write(f'Total Months: {num_months}\n')
     output_file.write(f'Total: ${total:.0f}\n')
     output_file.write(f'Average  Change: ${change_across_period/num_changes:.2f}\n')
-    output_file.write(f'Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})\n')
-    output_file.write(f'Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})\n')
+    output_file.write(f'Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase:.0f})\n')
+    output_file.write(f'Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease:.0f})\n')
 
 
 
